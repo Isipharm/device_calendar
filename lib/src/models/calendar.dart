@@ -53,4 +53,28 @@ class Calendar {
 
     return data;
   }
+
+  @override
+  bool operator ==(covariant Calendar other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.name == name &&
+        other.isReadOnly == isReadOnly &&
+        other.isDefault == isDefault &&
+        other.color == color &&
+        other.accountName == accountName &&
+        other.accountType == accountType;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        isReadOnly.hashCode ^
+        isDefault.hashCode ^
+        color.hashCode ^
+        accountName.hashCode ^
+        accountType.hashCode;
+  }
 }
